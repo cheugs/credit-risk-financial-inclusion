@@ -1,7 +1,5 @@
 # Credit Risk & Financial Inclusion Study
 
-*Master 1 project in Data Science for Banking and FinTech.*
-
 **Question:** Which factors are associated with loan default, and how can lenders evaluate
 underserved customers fairly?
 
