@@ -1,87 +1,89 @@
-# Credit Risk & Financial Inclusion Study
+# Étude du risque de crédit et de l'inclusion financière
 
-**Question:** Which factors are associated with loan default, and how can lenders evaluate
-underserved customers fairly?
+**Problématique :** Quels facteurs sont associés au défaut de remboursement, et comment les
+prêteurs peuvent-ils évaluer de manière équitable les clients mal desservis ?
 
-**Tools:** Python, pandas, SQL (SQLite), SciPy, statsmodels, scikit-learn, SHAP.
+**Outils :** Python, pandas, SQL (SQLite), SciPy, statsmodels, scikit-learn, SHAP.
 
-**Data:** [Statlog German Credit](https://doi.org/10.24432/C5NC77) (UCI), 1,000 consumer loans,
-30% bad credits. The code table that comes with this dataset is wrong for 8 variables, so we use
-the corrected table of Grömping (2019). See the report, section 3.2.
+**Données :** [Statlog German Credit](https://doi.org/10.24432/C5NC77) (UCI), 1 000 crédits à la
+consommation, 30 % de mauvais crédits. La table des codes fournie avec ces données est fausse pour
+8 variables : nous utilisons donc la table corrigée de Grömping (2019). Voir le rapport, section 3.2.
 
-## Main results
+## Principaux résultats
 
-| Topic | Result |
+| Thème | Résultat |
 | --- | --- |
-| Strongest factors | Checking account status, credit history, loan duration, savings |
-| Model | Logistic regression without sex, age or foreign-worker status. Test ROC-AUC = 0.80 |
-| Decision rule | Threshold P(default) = 1/6 from the 5:1 cost matrix. 22% cheaper than "reject everyone" |
-| Access to credit | At this threshold only 40% of applicants and 51% of good clients are approved |
-| Risk bands | Default rate from 6.5% (safest band) to 62.5% (riskiest band) |
-| Fairness | Clients aged 25 or less are approved much less often, even though the model does not use age (disparate impact = 0.65) |
+| Facteurs les plus forts | Compte courant, historique de crédit, durée du prêt, épargne |
+| Modèle | Régression logistique sans sexe, âge ni statut de travailleur étranger. ROC-AUC sur le test = 0,80 |
+| Règle de décision | Seuil P(défaut) = 1/6, issu de la matrice des coûts 5:1. Coût inférieur de 22 % à « tout refuser » |
+| Accès au crédit | À ce seuil, seulement 40 % des demandeurs et 51 % des bons clients sont acceptés |
+| Classes de risque | Taux de défaut de 6,5 % (classe la plus sûre) à 62,5 % (classe la plus risquée) |
+| Équité | Les clients de 25 ans ou moins sont beaucoup moins acceptés, alors que le modèle n'utilise pas l'âge (impact disparate = 0,65) |
 
-> These results are correlations in historical data from 1973-1975. They do not prove that
-> any person is or is not creditworthy.
+> Ces résultats sont des corrélations observées dans des données historiques de 1973-1975. Ils ne
+> prouvent pas qu'une personne est solvable ou non.
 
-## Reports
+## Rapports
 
-- English: [report/report_en.md](report/report_en.md) ([PDF](report/report_en.pdf))
-- Français : [report/rapport_fr.md](report/rapport_fr.md) ([PDF](report/rapport_fr.pdf))
-- Notebook walkthrough: [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
+- Rapport en français : [report/rapport_fr.md](report/rapport_fr.md) ([PDF](report/rapport_fr.pdf))
+- Rapport en anglais : [report/report_en.md](report/report_en.md) ([PDF](report/report_en.pdf))
+- Notebook pas à pas (en anglais) : [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
 
-## Project structure
+## Structure du projet
 
 ```
-data/raw/            german.data (original data) and german.doc (original documentation)
-data/processed/      clean CSV and SQLite database (created by step 1)
+data/raw/            german.data (données d'origine) et german.doc (documentation d'origine)
+data/processed/      CSV nettoyé et base SQLite (créés par l'étape 1)
 src/
-  common.py          settings, corrected code table, data loading, model and cost functions
-  01_data_prep.py    step 1: data preparation and SQL queries
-  02_statistics.py   step 2: chi-square, Mann-Whitney, logistic regression (odds ratios)
-  03_model.py        step 3: model, class imbalance, decision threshold, risk bands
-  04_shap.py         step 4: SHAP explanations
-  05_fairness.py     step 5: fairness audit with bootstrap confidence intervals
-  run_all.py         runs steps 1 to 5
-notebooks/           step-by-step notebook with results
-results/             figures, tables and the saved model (created by the scripts)
-report/              full report in English and French (Markdown and PDF)
+  common.py          paramètres, table des codes corrigée, chargement des données, modèle et coûts
+  01_data_prep.py    étape 1 : préparation des données et requêtes SQL
+  02_statistics.py   étape 2 : khi-deux, Mann-Whitney, régression logistique (odds ratios)
+  03_model.py        étape 3 : modèle, déséquilibre des classes, seuil de décision, classes de risque
+  04_shap.py         étape 4 : explications SHAP
+  05_fairness.py     étape 5 : audit d'équité avec intervalles de confiance bootstrap
+  run_all.py         lance les étapes 1 à 5
+notebooks/           notebook pas à pas avec les résultats
+results/             graphiques, tableaux et modèle enregistré (créés par les scripts)
+report/              rapport complet en français et en anglais (Markdown et PDF)
 ```
 
-## How to run
+## Exécution
 
 ```bash
 pip install -r requirements.txt
 python src/run_all.py
 ```
 
-The random seed is fixed, so every run gives the same results.
+La graine aléatoire est fixée : chaque exécution donne les mêmes résultats.
 
-## Method in five steps
+## Méthode en cinq étapes
 
-1. **Data and SQL:** apply the corrected code table, store the data in SQLite, compute default
-   rates by segment with SQL.
-2. **Statistics:** chi-square tests with Cramér's V, Mann-Whitney U tests with rank-biserial
-   correlation, Bonferroni correction, and a logistic regression with odds ratios.
-3. **Model:** logistic regression without sensitive data. Comparison of a normal and a
-   "balanced" model (same ranking, but only the normal model gives realistic probabilities).
-   Threshold from the cost matrix, comparison with simple rules, 5 risk bands.
-4. **SHAP:** global importance and explanations for single clients.
-5. **Fairness:** disparate impact and equal opportunity by age and foreign-worker status, with
-   bootstrap confidence intervals, and a "blind" vs "full" model comparison.
+1. **Données et SQL :** application de la table des codes corrigée, stockage dans SQLite, calcul
+   des taux de défaut par segment en SQL.
+2. **Statistiques :** tests du khi-deux avec V de Cramér, tests de Mann-Whitney U avec corrélation
+   bisériale de rang, correction de Bonferroni, et régression logistique avec odds ratios.
+3. **Modèle :** régression logistique sans données sensibles. Comparaison d'un modèle normal et
+   d'un modèle « équilibré » (même classement, mais seul le modèle normal donne des probabilités
+   réalistes). Seuil issu de la matrice des coûts, comparaison avec des règles simples, 5 classes
+   de risque.
+4. **SHAP :** importance globale des variables et explications pour un client donné.
+5. **Équité :** impact disparate et égalité des chances selon l'âge et le statut de travailleur
+   étranger, avec intervalles de confiance bootstrap, et comparaison d'un modèle « aveugle » et
+   d'un modèle « complet ».
 
-## Limitations
+## Limites
 
-- Only approved clients are in the data (selection bias), and bad credits were oversampled
-  (30% in the sample, about 5% in reality).
-- Small and old data (1,000 loans, southern Germany, 1973-1975).
-- Sex cannot be recovered from the data, so it is not audited. Only 37 clients are foreign
-  workers, so results for this group are uncertain.
+- Seuls les clients acceptés figurent dans les données (biais de sélection), et les mauvais
+  crédits ont été sur-représentés (30 % dans l'échantillon, environ 5 % en réalité).
+- Données petites et anciennes (1 000 crédits, sud de l'Allemagne, 1973-1975).
+- Le sexe ne peut pas être retrouvé dans les données : il n'est donc pas audité. Seuls 37 clients
+  sont des travailleurs étrangers : les résultats pour ce groupe sont incertains.
 
-## Main references
+## Principales références
 
 - Hofmann, H. (1994). *Statlog (German Credit Data)*. UCI Machine Learning Repository. https://doi.org/10.24432/C5NC77
 - Grömping, U. (2019). *South German Credit Data: Correcting a Widely Used Data Set*. Report 4/2019, Beuth University of Applied Sciences Berlin.
 - Elkan, C. (2001). The foundations of cost-sensitive learning. *IJCAI*.
 - Kozodoi, N., Jacob, J., & Lessmann, S. (2022). Fairness in credit scoring. *European Journal of Operational Research, 297*(3).
 
-The full list of references is at the end of each report.
+La liste complète des références se trouve à la fin de chaque rapport.
