@@ -1,0 +1,58 @@
+feature,mean_abs_shap
+checking_status = >= 200 DM or salary account,0.432
+credit_history = all credits at this bank paid back duly,0.34
+savings = unknown / no savings account,0.334
+duration_months,0.283
+checking_status = no checking account,0.254
+credit_amount,0.205
+installment_rate = < 20% of income,0.202
+employment = 4 to 7 years,0.187
+housing = for free,0.167
+property = real estate,0.157
+savings = >= 1000 DM,0.149
+checking_status = < 0 DM,0.145
+purpose = others,0.141
+purpose = car (new),0.131
+property = unknown / no property,0.121
+housing = own,0.112
+other_installment_plans = none,0.103
+purpose = repairs,0.101
+existing_credits,0.098
+installment_rate = >= 35% of income,0.095
+other_installment_plans = bank,0.086
+employment = < 1 year,0.082
+installment_rate = 25 to 35% of income,0.068
+property = car or other,0.065
+employment = unemployed,0.064
+telephone = yes,0.064
+telephone = no,0.063
+purpose = furniture / equipment,0.062
+property = savings agreement / life insurance,0.057
+installment_rate = 20 to 25% of income,0.053
+savings = < 100 DM,0.051
+other_debtors = guarantor,0.045
+savings = 500 to 1000 DM,0.045
+credit_history = no credits taken / all paid back duly,0.043
+other_debtors = none,0.041
+employment = 1 to 4 years,0.037
+credit_history = delay in paying off in the past,0.037
+job = skilled employee,0.037
+people_liable,0.027
+credit_history = critical account / credits elsewhere,0.026
+purpose = business,0.02
+employment = >= 7 years,0.018
+residence_since,0.016
+other_debtors = co-applicant,0.015
+purpose = domestic appliances,0.014
+checking_status = 0 to 200 DM,0.012
+credit_history = existing credits paid back duly,0.009
+purpose = car (used),0.007
+purpose = vacation,0.006
+job = unskilled resident,0.005
+job = manager / self-employed / highly qualified,0.004
+job = unemployed / unskilled non-resident,0.003
+savings = 100 to 500 DM,0.002
+other_installment_plans = stores,0.001
+housing = rent,0.001
+purpose = radio / television,0.001
+purpose = retraining,0.0

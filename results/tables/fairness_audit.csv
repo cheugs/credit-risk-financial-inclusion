@@ -1,0 +1,5 @@
+model,cv_roc_auc,attribute,protected_group,reference_group,n_protected,default_rate_protected,default_rate_reference,approval_protected,approval_reference,disparate_impact,good_payers_approved_protected,good_payers_approved_reference,equal_opportunity_gap,di_ci_low,di_ci_high,eo_gap_ci_low,eo_gap_ci_high
+blind,0.775,age_group,<= 25,> 25,190,0.421,0.272,0.279,0.428,0.651,0.409,0.532,-0.123,0.499,0.809,-0.222,-0.023
+blind,0.775,foreign_worker,yes,no,37,0.108,0.307,0.432,0.399,1.084,0.485,0.514,-0.029,0.706,1.5,-0.196,0.148
+full,0.778,age_group,<= 25,> 25,190,0.421,0.272,0.247,0.448,0.552,0.373,0.556,-0.183,0.416,0.704,-0.279,-0.08
+full,0.778,foreign_worker,yes,no,37,0.108,0.307,0.73,0.398,1.835,0.758,0.516,0.242,1.431,2.212,0.084,0.384

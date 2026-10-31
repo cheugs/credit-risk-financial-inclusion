@@ -1,0 +1,31 @@
+{
+  "n_train": 750,
+  "n_test": 250,
+  "test_roc_auc": 0.796,
+  "threshold": 0.167,
+  "best_threshold_on_training_cv": 0.16,
+  "features": [
+    "checking_status",
+    "credit_history",
+    "purpose",
+    "savings",
+    "employment",
+    "installment_rate",
+    "other_debtors",
+    "property",
+    "other_installment_plans",
+    "housing",
+    "job",
+    "telephone",
+    "duration_months",
+    "credit_amount",
+    "residence_since",
+    "existing_credits",
+    "people_liable"
+  ],
+  "excluded_sensitive": [
+    "personal_status_sex",
+    "foreign_worker",
+    "age"
+  ]
+}

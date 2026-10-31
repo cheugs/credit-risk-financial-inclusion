@@ -1,0 +1,6 @@
+band,n,defaults,mean_score,min_score,max_score,default_rate,ci_low,ci_high,suggested_action
+A (lowest risk),200,13,0.043,0.006,0.076,0.065,0.038,0.108,"approve, standard terms"
+B,200,28,0.121,0.076,0.166,0.14,0.099,0.195,"approve, standard terms"
+C,200,54,0.234,0.167,0.311,0.27,0.213,0.335,approve with smaller amount or shorter duration
+D,200,80,0.42,0.312,0.539,0.4,0.335,0.469,"manual review (guarantor, collateral)"
+E (highest risk),200,125,0.687,0.54,0.973,0.625,0.556,0.689,decline or secured loan only

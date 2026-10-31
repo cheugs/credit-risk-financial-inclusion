@@ -1,0 +1,3 @@
+model,roc_auc,mean_predicted_pd,observed_default_rate,brier_score
+normal,0.759,0.3,0.3,0.176
+balanced,0.758,0.435,0.3,0.2

@@ -1,0 +1,46 @@
+term,odds_ratio,ci_low,ci_high,p_value,effect
+checking_status = no checking account,5.408,3.452,8.474,0.0,higher risk
+checking_status = < 0 DM,3.984,2.537,6.255,0.0,higher risk
+savings = >= 1000 DM,0.376,0.227,0.624,0.0,lower risk
+credit_history = all credits at this bank paid back duly,0.395,0.24,0.651,0.0,lower risk
+duration_months (+1 SD),1.457,1.171,1.812,0.001,higher risk
+purpose = others,2.212,1.377,3.555,0.001,higher risk
+installment_rate = >= 35% of income,0.435,0.246,0.772,0.004,lower risk
+employment = 4 to 7 years,0.49,0.291,0.824,0.007,lower risk
+other_debtors = guarantor,0.336,0.148,0.763,0.009,lower risk
+installment_rate = 25 to 35% of income,0.551,0.352,0.863,0.009,lower risk
+savings = 500 to 1000 DM,0.272,0.098,0.753,0.012,lower risk
+housing = for free,1.742,1.12,2.71,0.014,higher risk
+credit_amount (+1 SD),1.353,1.061,1.726,0.015,higher risk
+other_installment_plans = bank,1.779,1.117,2.832,0.015,higher risk
+purpose = repairs,2.557,1.16,5.637,0.02,higher risk
+purpose = car (new),0.458,0.217,0.968,0.041,lower risk
+checking_status = 0 to 200 DM,2.092,0.998,4.385,0.051,higher risk
+credit_history = critical account / credits elsewhere,2.061,0.98,4.332,0.056,higher risk
+telephone = yes,0.738,0.5,1.088,0.125,lower risk
+existing_credits (+1 SD),1.172,0.949,1.447,0.142,higher risk
+savings = < 100 DM,0.71,0.407,1.237,0.227,lower risk
+other_installment_plans = stores,1.552,0.75,3.213,0.236,higher risk
+savings = 100 to 500 DM,0.634,0.29,1.386,0.254,lower risk
+credit_history = existing credits paid back duly,0.709,0.383,1.314,0.275,lower risk
+purpose = domestic appliances,1.827,0.615,5.425,0.278,higher risk
+credit_history = delay in paying off in the past,1.585,0.689,3.646,0.279,higher risk
+property = real estate,1.517,0.701,3.279,0.29,higher risk
+property = unknown / no property,0.787,0.499,1.243,0.305,lower risk
+installment_rate = 20 to 25% of income,0.78,0.478,1.272,0.319,lower risk
+employment = >= 7 years,0.805,0.502,1.291,0.369,lower risk
+employment = < 1 year,1.231,0.775,1.954,0.379,higher risk
+job = unemployed / unskilled non-resident,0.578,0.167,2.007,0.388,lower risk
+purpose = business,0.516,0.111,2.389,0.397,lower risk
+purpose = vacation,0.372,0.036,3.834,0.406,lower risk
+other_debtors = co-applicant,1.35,0.611,2.983,0.459,higher risk
+housing = own,0.749,0.316,1.774,0.511,lower risk
+purpose = car (used),1.163,0.696,1.945,0.564,higher risk
+purpose = radio / television,1.489,0.336,6.596,0.6,higher risk
+purpose = retraining,1.184,0.617,2.27,0.612,higher risk
+job = unskilled resident,0.899,0.577,1.401,0.638,lower risk
+employment = unemployed,1.164,0.527,2.57,0.708,higher risk
+job = manager / self-employed / highly qualified,0.906,0.52,1.577,0.726,lower risk
+people_liable (+1 SD),1.01,0.854,1.195,0.906,higher risk
+property = car or other,1.015,0.648,1.59,0.948,higher risk
+residence_since (+1 SD),0.999,0.832,1.199,0.989,lower risk

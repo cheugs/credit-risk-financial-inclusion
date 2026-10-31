@@ -1,0 +1,5 @@
+strategy,approval_rate,good_clients_approved,defaulters_approved,expected_cost,saving_vs_best_simple_rule
+approve everyone,1.0,1.0,1.0,1.5,-1.143
+reject everyone,0.0,0.0,0.0,0.7,0.0
+"model, threshold 0.50",0.736,0.863,0.44,0.756,-0.08
+"model, threshold 0.167",0.396,0.509,0.133,0.544,0.223
