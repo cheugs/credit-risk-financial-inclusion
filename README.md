@@ -27,7 +27,7 @@ consommation, 30 % de mauvais crédits. La table des codes fournie avec ces donn
 
 - Rapport en français : [report/rapport_fr.md](report/rapport_fr.md) ([PDF](report/rapport_fr.pdf))
 - Rapport en anglais : [report/report_en.md](report/report_en.md) ([PDF](report/report_en.pdf))
-- Notebook pas à pas : [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
+- Notebook pas à pas (en anglais) : [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
 
 ## Structure du projet
 
