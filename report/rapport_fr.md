@@ -1,7 +1,7 @@
 ---
 title: "Étude du risque de crédit et de l'inclusion financière"
 subtitle: "Data Science pour la banque et la FinTech"
-author: "CHENGHO FONGANG Marie Louise"
+author: "Chengho Fongang Marie Louise"
 date: "Octobre 2026"
 lang: fr
 ---

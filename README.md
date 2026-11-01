@@ -1,5 +1,7 @@
 # Étude du risque de crédit et de l'inclusion financière
 
+**Français** | [English](README_en.md)
+
 **Problématique :** Quels facteurs sont associés au défaut de remboursement, et comment les
 prêteurs peuvent-ils évaluer de manière équitable les clients mal desservis ?
 
@@ -27,7 +29,8 @@ consommation, 30 % de mauvais crédits. La table des codes fournie avec ces donn
 
 - Rapport en français : [report/rapport_fr.md](report/rapport_fr.md) ([PDF](report/rapport_fr.pdf))
 - Rapport en anglais : [report/report_en.md](report/report_en.md) ([PDF](report/report_en.pdf))
-- Notebook pas à pas (en anglais) : [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
+- Notebook pas à pas en français : [notebooks/etude_risque_credit.ipynb](notebooks/etude_risque_credit.ipynb)
+- Notebook pas à pas en anglais : [notebooks/credit_risk_study.ipynb](notebooks/credit_risk_study.ipynb)
 
 ## Structure du projet
 
@@ -42,7 +45,7 @@ src/
   04_shap.py         étape 4 : explications SHAP
   05_fairness.py     étape 5 : audit d'équité avec intervalles de confiance bootstrap
   run_all.py         lance les étapes 1 à 5
-notebooks/           notebook pas à pas avec les résultats
+notebooks/           notebooks pas à pas avec les résultats (français et anglais)
 results/             graphiques, tableaux et modèle enregistré (créés par les scripts)
 report/              rapport complet en français et en anglais (Markdown et PDF)
 ```
